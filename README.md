@@ -41,27 +41,27 @@ A good improvement was change the matrix P to `0.01, 0, 0, 0; 0, 0.01, 0, 0; 0, 
 
 #### 1. While you may be creative with your implementation, there is a well-defined set of steps that must take place in order to successfully build a Kalman Filter. As such, your project should follow the algorithm as described in the preceding lesson.
 
-I have followed the class for all implementation. At the code is possible to see where in the class I got the reference for the code, just like [this line](reference) where I show that was from lesson 6 section 13.
+I have followed the class for all implementation. At the code is possible to see where in the class I got the reference for the code, just like [this line](https://github.com/marlosdamasceno/extended-kalman-filter/blob/master/src/FusionEKF.cpp#L73) where I show that was from lesson 6 section 13.
 
 	
 #### 2. Your algorithm should use the first measurements to initialize the state vectors and covariance matrices.
 
-The first measurement is handled at [FusionEKF.cpp](reference) from line 55 to line 93.
+The first measurement is handled at [FusionEKF.cpp](https://github.com/marlosdamasceno/extended-kalman-filter/blob/master/src/FusionEKF.cpp#L55) from line 55 to line 93.
 
 #### 3. Upon receiving a measurement after the first, the algorithm should predict object position to the current timestep and then update the prediction using the new measurement.
 
-The predict and update steps can be found in [FusionEKF.cpp](reference) from line 95 to line 132.
+The predict and update steps can be found in [FusionEKF.cpp](https://github.com/marlosdamasceno/extended-kalman-filter/blob/master/src/FusionEKF.cpp#L95) from line 95 to line 132.
 
 
 #### 4. Your algorithm sets up the appropriate matrices given the type of measurement and calls the correct measurement function for a given sensor type.
 
-The code can handle both Radar and Lidar sensors, you can find in [FusionEKF.cpp](reference) from line 124 to line 132.
+The code can handle both Radar and Lidar sensors, you can find in [FusionEKF.cpp](https://github.com/marlosdamasceno/extended-kalman-filter/blob/master/src/FusionEKF.cpp#L124) from line 124 to line 132.
 
 ### Code Efficiency
 
 #### 1. Your algorithm should avoid unnecessary calculations.
 
-As an example of optimization of the code is the calculation of the matrix Q in  [FusionEKF.cpp](reference) from line 112 to line 115.
+As an example of optimization of the code is the calculation of the matrix Q in  [FusionEKF.cpp](https://github.com/marlosdamasceno/extended-kalman-filter/blob/master/src/FusionEKF.cpp#L122) from line 112 to line 115.
 
 ---
 
@@ -69,7 +69,7 @@ As an example of optimization of the code is the calculation of the matrix Q in 
 This is project was a good warm up for me, since I do not code in C++ in years! The Slack community helped me a lot, specially this [post](https://youtu.be/J7WK9gEUltM).
 Moreover, I had some issues at the beginning because at some point my predictions got totally lost, as you can see in the image below.
 ![alt text][image1]
-However, after some search in the Slack channel I found that I should normalize the angle after calculating phi for radar measurements. Therefore, I had to use this [code](reference), that fixed the issue.
+However, after some search in the Slack channel I found that I should normalize the angle after calculating phi for radar measurements. Therefore, I had to use this [code](https://github.com/marlosdamasceno/extended-kalman-filter/blob/master/src/kalman_filter.cpp#L63), that fixed the issue.
 `while(y(1) > M_PI || y(1) < -M_PI) {
     if (y(1) > M_PI) {
         y(1) -= M_PI;
